@@ -1,7 +1,6 @@
-﻿namespace FactoryLib.v3
+﻿namespace FactoryLib.v3;
+
+public interface INotificationProvider
 {
-    public interface INotificationProvider
-    {
-        void Send(User user, string message);
-    }
+    void Send(User user, string message);
 }

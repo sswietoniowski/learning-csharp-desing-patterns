@@ -1,8 +1,7 @@
-﻿namespace FactoryLib.v2
+﻿namespace FactoryLib.v2;
+
+public enum NotificationType
 {
-    public enum NotificationType
-    {
-        Email,
-        SMS
-    }
+    Email,
+    SMS
 }

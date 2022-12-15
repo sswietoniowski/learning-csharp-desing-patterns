@@ -1,7 +1,6 @@
-﻿namespace FactoryLib.v3
+﻿namespace FactoryLib.v3;
+
+public class EmailNotificationProviderFactory : NotificationProviderFactory
 {
-    public class EmailNotificationProviderFactory : NotificationProviderFactory
-    {
-        public override INotificationProvider CreateProvider() => new EmailProvider();
-    }
+    public override INotificationProvider CreateProvider() => new EmailProvider();
 }

@@ -1,6 +1,5 @@
-﻿namespace BuilderDemoLib.v2
+﻿namespace BuilderDemoLib.v2;
+
+public class LuxuryHouse : House
 {
-    public class LuxuryHouse : House
-    {
-    }
 }

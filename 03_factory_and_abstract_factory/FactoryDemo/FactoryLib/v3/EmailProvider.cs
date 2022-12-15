@@ -1,10 +1,9 @@
-﻿namespace FactoryLib.v3
+﻿namespace FactoryLib.v3;
+
+public class EmailProvider : INotificationProvider
 {
-    public class EmailProvider : INotificationProvider
+    public void Send(User user, string message)
     {
-        public void Send(User user, string message)
-        {
-            Console.WriteLine($"To {user.Name} was sent an email to address {user.Email} with the message: {message}");
-        }
+        Console.WriteLine($"To {user.Name} was sent an email to address {user.Email} with the message: {message}");
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace FactoryLib.v3
+﻿namespace FactoryLib.v3;
+
+public abstract class NotificationProviderFactory
 {
-    public abstract class NotificationProviderFactory
-    {
-        public abstract INotificationProvider CreateProvider();
-    }
+    public abstract INotificationProvider CreateProvider();
 }

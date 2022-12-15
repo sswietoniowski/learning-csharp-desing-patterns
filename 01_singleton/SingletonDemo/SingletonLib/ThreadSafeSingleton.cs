@@ -1,24 +1,22 @@
-﻿namespace SingletonLib
+﻿namespace SingletonLib;
+// more ideas how to create a thread safe singleton can be found here:
+// https://web.archive.org/web/20080713050413/http://www.yoda.arachsys.com/csharp/singleton.html
+
+public sealed class ThreadSafeSingleton
 {
-    // more ideas how to create a thread safe singleton can be found here:
-    // https://web.archive.org/web/20080713050413/http://www.yoda.arachsys.com/csharp/singleton.html
+    private static readonly Lazy<ThreadSafeSingleton> Lazy = new Lazy<ThreadSafeSingleton>(() => new ThreadSafeSingleton());
 
-    public sealed class ThreadSafeSingleton
+    public static ThreadSafeSingleton Instance
     {
-        private static readonly Lazy<ThreadSafeSingleton> Lazy = new Lazy<ThreadSafeSingleton>(() => new ThreadSafeSingleton());
-
-        public static ThreadSafeSingleton Instance
+        get
         {
-            get
-            {
-                Logger.Log("Instance called.");
-                return Lazy.Value;
-            }
+            Logger.Log("Instance called.");
+            return Lazy.Value;
         }
+    }
 
-        private ThreadSafeSingleton()
-        {
-            Logger.Log("Constructor invoked.");
-        }
+    private ThreadSafeSingleton()
+    {
+        Logger.Log("Constructor invoked.");
     }
 }

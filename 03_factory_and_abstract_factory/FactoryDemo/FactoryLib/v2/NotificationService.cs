@@ -1,21 +1,20 @@
-﻿namespace FactoryLib.v2
+﻿namespace FactoryLib.v2;
+
+public class NotificationService
 {
-    public class NotificationService
+    private List<User> _users = new();
+
+    public void AddUser(User user)
     {
-        private List<User> _users = new();
+        _users.Add(user);
+    }
 
-        public void AddUser(User user)
+    public void Notify(string message)
+    {
+        foreach (var user in _users)
         {
-            _users.Add(user);
-        }
-
-        public void Notify(string message)
-        {
-            foreach (var user in _users)
-            {
-                var provider = NotificationProviderFactory.CreateProvider(user.NotificationType);
-                provider.Send(user, message);
-            }
+            var provider = NotificationProviderFactory.CreateProvider(user.NotificationType);
+            provider.Send(user, message);
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿namespace FactoryLib.v1
+﻿namespace FactoryLib.v1;
+
+public class SmsProvider
 {
-    public class SmsProvider
+    public void Send(User user, string message)
     {
-        public void Send(User user, string message)
-        {
-            Console.WriteLine($"To {user.Name} was sent an SMS to phone number {user.PhoneNumber} with the message: {message}");
-        }
+        Console.WriteLine($"To {user.Name} was sent an SMS to phone number {user.PhoneNumber} with the message: {message}");
     }
 }

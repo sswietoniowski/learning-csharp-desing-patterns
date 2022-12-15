@@ -1,8 +1,7 @@
-﻿namespace BuilderDemoLib.v2
+﻿namespace BuilderDemoLib.v2;
+
+public enum HouseType
 {
-    public enum HouseType
-    {
-        Simple,
-        Complex
-    }
+    Simple,
+    Complex
 }

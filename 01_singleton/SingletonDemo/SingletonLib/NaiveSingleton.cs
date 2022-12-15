@@ -1,34 +1,33 @@
-﻿namespace SingletonLib
+﻿namespace SingletonLib;
+
+public sealed class NaiveSingleton
 {
-    public sealed class NaiveSingleton
+    private static NaiveSingleton? _instance;
+
+    //public static NaiveSingleton Instance
+    //{
+    //    get
+    //    {
+    //        if (_instance == null)
+    //        {
+    //            _instance = new NaiveSingleton();
+    //        }
+
+    //        return _instance;
+    //    }
+    //}
+
+    public static NaiveSingleton Instance
     {
-        private static NaiveSingleton? _instance;
-
-        //public static NaiveSingleton Instance
-        //{
-        //    get
-        //    {
-        //        if (_instance == null)
-        //        {
-        //            _instance = new NaiveSingleton();
-        //        }
-
-        //        return _instance;
-        //    }
-        //}
-
-        public static NaiveSingleton Instance
+        get
         {
-            get
-            {
-                Logger.Log("Instance called.");
-                return _instance ??= new NaiveSingleton();
-            }
+            Logger.Log("Instance called.");
+            return _instance ??= new NaiveSingleton();
         }
+    }
 
-        private NaiveSingleton()
-        {
-            Logger.Log("Constructor invoked.");
-        }
+    private NaiveSingleton()
+    {
+        Logger.Log("Constructor invoked.");
     }
 }
