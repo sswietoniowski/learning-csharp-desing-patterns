@@ -4,7 +4,7 @@ Small example showing use of (some selected) design patterns in C#.
 
 This sample was created for my own use during lectures, so nothing fancy here :-).
 
-More info about design presented design patterns can be found at [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern).
+More info about presented design patterns can be found at [Wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern).
 
 There are some great examples of design patterns that can be found on GitHub, one example being [Design Patterns Explained with Food](https://github.com/wesdoyle/design-patterns-explained-with-food).
 
