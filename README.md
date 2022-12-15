@@ -1,6 +1,6 @@
 # Learning C# Design Patterns Demo
 
-Small example showing use of (selected) design patterns in C#.
+Small example showing use of (some selected) design patterns in C#.
 
 This sample was created for my own use during lectures, so nothing fancy here :-).
 
