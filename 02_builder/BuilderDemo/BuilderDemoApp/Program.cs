@@ -39,7 +39,7 @@ var simpleHouseV2 = houseBuilder
 
 Console.WriteLine(simpleHouseV2);
 
-var luxuryHouse = houseBuilder
+var complexHouseV2 = houseBuilder
     .Reset()
     .AddWindows(20)
     .AddDoors(10)
@@ -50,4 +50,4 @@ var luxuryHouse = houseBuilder
     .AddGarden()
     .Build();
 
-Console.WriteLine(luxuryHouse);
+Console.WriteLine(complexHouseV2);
