@@ -19,8 +19,8 @@
             }
         }
 
-        private INotificationProvider CreateNotificationProvider(NotificationType notificationType) =>
-            _factories[notificationType].Create();
+        private INotificationProvider CreateProvider(NotificationType notificationType) =>
+            _factories[notificationType].CreateProvider();
 
         public void AddUser(User user)
         {
@@ -31,7 +31,7 @@
         {
             foreach (var user in _users)
             {
-                var provider = CreateNotificationProvider(user.NotificationType);
+                var provider = CreateProvider(user.NotificationType);
                 provider.Send(user, message);
             }
         }

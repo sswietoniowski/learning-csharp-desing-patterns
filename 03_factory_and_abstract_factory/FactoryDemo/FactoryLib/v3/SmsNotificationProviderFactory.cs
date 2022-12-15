@@ -2,6 +2,6 @@
 {
     public class SmsNotificationProviderFactory : NotificationProviderFactory
     {
-        public override INotificationProvider Create() => new SmsProvider();
+        public override INotificationProvider CreateProvider() => new SmsProvider();
     }
 }

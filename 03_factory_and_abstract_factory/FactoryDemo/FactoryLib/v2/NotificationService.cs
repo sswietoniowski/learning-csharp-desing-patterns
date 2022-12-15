@@ -13,7 +13,7 @@
         {
             foreach (var user in _users)
             {
-                var provider = NotificationProviderFactory.Create(user.NotificationType);
+                var provider = NotificationProviderFactory.CreateProvider(user.NotificationType);
                 provider.Send(user, message);
             }
         }

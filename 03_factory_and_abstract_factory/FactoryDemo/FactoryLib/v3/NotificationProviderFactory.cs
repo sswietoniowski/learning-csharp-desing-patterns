@@ -2,6 +2,6 @@
 {
     public abstract class NotificationProviderFactory
     {
-        public abstract INotificationProvider Create();
+        public abstract INotificationProvider CreateProvider();
     }
 }

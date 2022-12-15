@@ -1,6 +1,6 @@
 ﻿namespace FactoryLib.v2
 {
-    public class SmsProvider : INotificationProvider
+    public class SmsNotificationProvider : INotificationProvider
     {
         public void Send(User user, string message)
         {

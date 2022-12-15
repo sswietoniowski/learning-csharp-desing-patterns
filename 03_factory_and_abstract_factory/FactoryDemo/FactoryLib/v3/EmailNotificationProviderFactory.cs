@@ -2,6 +2,6 @@
 {
     public class EmailNotificationProviderFactory : NotificationProviderFactory
     {
-        public override INotificationProvider Create() => new EmailProvider();
+        public override INotificationProvider CreateProvider() => new EmailProvider();
     }
 }
