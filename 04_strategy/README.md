@@ -15,7 +15,9 @@ Understanding the benefits and tradeoffs.
 ## Characteristics
 
 **Context** - has a reference to a strategy and invokes it.
+
 **IStrategy** - defines the interface for the given strategy.
+
 **Strategy** - a concrete implementation of the strategy.
 
 Select an implementation at runtime based on user input without having to extend the class.
