@@ -1,4 +1,6 @@
-﻿namespace CommandLib.v2;
+﻿using CommandLib.v1.Models;
+
+namespace CommandLib.v1.Repositories;
 
 public interface IProductRepository
 {

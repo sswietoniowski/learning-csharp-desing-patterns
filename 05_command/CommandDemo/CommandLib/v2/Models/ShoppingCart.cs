@@ -1,4 +1,4 @@
-﻿namespace CommandLib.v2;
+﻿namespace CommandLib.v2.Models;
 
 public class ShoppingCart
 {

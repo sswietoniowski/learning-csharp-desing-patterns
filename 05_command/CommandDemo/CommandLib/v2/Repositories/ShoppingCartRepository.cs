@@ -1,4 +1,6 @@
-﻿namespace CommandLib.v1;
+﻿using CommandLib.v2.Models;
+
+namespace CommandLib.v2.Repositories;
 
 public class ShoppingCartRepository : IShoppingCartRepository
 {
@@ -57,5 +59,39 @@ public class ShoppingCartRepository : IShoppingCartRepository
         }
 
         existingItem.Quantity++;
+    }
+
+    public void RemoveProduct(int shoppingCartId, int productId)
+    {
+        var shoppingCart = Get(shoppingCartId);
+        if (shoppingCart == null)
+        {
+            throw new InvalidOperationException("Shopping cart not found");
+        }
+
+        var existingItem = shoppingCart.Items.FirstOrDefault(x => x?.Product.Id == productId);
+        if (existingItem == null)
+        {
+            throw new InvalidOperationException("Product not found in shopping cart");
+        }
+
+        shoppingCart.Items.Remove(existingItem);
+    }
+
+    public void DecreaseProductQuantity(int shoppingCartId, int productId)
+    {
+        var shoppingCart = Get(shoppingCartId);
+        if (shoppingCart == null)
+        {
+            throw new InvalidOperationException("Shopping cart not found");
+        }
+
+        var existingItem = shoppingCart.Items.FirstOrDefault(x => x?.Product.Id == productId);
+        if (existingItem == null)
+        {
+            throw new InvalidOperationException("Product not found in shopping cart");
+        }
+
+        existingItem.Quantity--;
     }
 }
