@@ -24,10 +24,20 @@ var productRepository = new v1.Repositories.ProductRepository();
 
 var product = productRepository.Get(1)!;
 
+if (product.Stock == 0)
+{
+    throw new InvalidOperationException("Product out of stock");
+}
 shoppingCartRepository.AddProduct(1, product);
+
 shoppingCartRepository.IncreaseProductQuantity(1, 1);
+productRepository.DecreaseStock(product.Id);
+
 shoppingCartRepository.IncreaseProductQuantity(1, 1);
+productRepository.DecreaseStock(product.Id);
+
 shoppingCartRepository.IncreaseProductQuantity(1, 1);
+productRepository.DecreaseStock(product.Id);
 
 PrintCartV1(shoppingCartRepository, 1);
 
@@ -56,13 +66,13 @@ var productV2 = productRepositoryV2.Get(1)!;
 
 var commandManager = new v2.Commands.CommandManager();
 
-commandManager.Invoke(new v2.Commands.AddToCartCommand(shoppingCartRepositoryV2, 1, productV2));
-commandManager.Invoke(new v2.Commands.IncreaseQuantityCommand(shoppingCartRepositoryV2, 1, 1));
-commandManager.Invoke(new v2.Commands.IncreaseQuantityCommand(shoppingCartRepositoryV2, 1, 1));
-commandManager.Invoke(new v2.Commands.IncreaseQuantityCommand(shoppingCartRepositoryV2, 1, 1));
+commandManager.Invoke(new v2.Commands.AddToCartCommand(shoppingCartRepositoryV2, productRepositoryV2, 1, productV2));
+commandManager.Invoke(new v2.Commands.ChangeQuantityCommand(v2.Commands.Operation.Increase, shoppingCartRepositoryV2, productRepositoryV2, 1, 1));
+commandManager.Invoke(new v2.Commands.ChangeQuantityCommand(v2.Commands.Operation.Increase, shoppingCartRepositoryV2, productRepositoryV2, 1, 1));
+commandManager.Invoke(new v2.Commands.ChangeQuantityCommand(v2.Commands.Operation.Increase, shoppingCartRepositoryV2, productRepositoryV2, 1, 1));
 
 PrintCartV2(shoppingCartRepositoryV2, 1);
 
-commandManager.Undo();
+commandManager.Undo(); // we could also use try-catching and call Undo() in case of an exception
 
 PrintCartV2(shoppingCartRepositoryV2, 1);
