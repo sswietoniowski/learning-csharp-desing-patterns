@@ -66,10 +66,13 @@ var productV2 = productRepositoryV2.Get(1)!;
 
 var commandManager = new v2.Commands.CommandManager();
 
-commandManager.Invoke(new v2.Commands.AddToCartCommand(shoppingCartRepositoryV2, productRepositoryV2, 1, productV2));
-commandManager.Invoke(new v2.Commands.ChangeQuantityCommand(v2.Commands.Operation.Increase, shoppingCartRepositoryV2, productRepositoryV2, 1, 1));
-commandManager.Invoke(new v2.Commands.ChangeQuantityCommand(v2.Commands.Operation.Increase, shoppingCartRepositoryV2, productRepositoryV2, 1, 1));
-commandManager.Invoke(new v2.Commands.ChangeQuantityCommand(v2.Commands.Operation.Increase, shoppingCartRepositoryV2, productRepositoryV2, 1, 1));
+var addToCartCommand = new v2.Commands.AddToCartCommand(shoppingCartRepositoryV2, productRepositoryV2, 1, productV2);
+var increaseQuantityCommand = new v2.Commands.ChangeQuantityCommand(v2.Commands.Operation.Increase, shoppingCartRepositoryV2, productRepositoryV2, 1, 1);
+
+commandManager.Invoke(addToCartCommand);
+commandManager.Invoke(increaseQuantityCommand);
+commandManager.Invoke(increaseQuantityCommand);
+commandManager.Invoke(increaseQuantityCommand);
 
 PrintCartV2(shoppingCartRepositoryV2, 1);
 
